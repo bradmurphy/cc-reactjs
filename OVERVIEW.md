@@ -62,4 +62,4 @@ A general overview of the Creative Circus React JS Curriculum.
 
 ## Week 10
 - Final Project presentations.
--
+- AMA/Q & A
