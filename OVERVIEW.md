@@ -53,6 +53,13 @@ A general overview of the Creative Circus React JS Curriculum.
     * Add YouTube Video Player with event and progress tracking to Redux.
 
 ## Week 5
-- Overview of previous concepts.
+- Overview of previous concepts/continuation of any Redux teaching.
 - Introduction to final project.
 - Q & A
+
+## Week 6 - 9
+- Building Final Project
+
+## Week 10
+- Final Project presentations.
+-
