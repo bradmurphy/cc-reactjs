@@ -9,7 +9,7 @@ A general overview of the Creative Circus React JS Curriculum.
 - Overview of Modern JS Functions
 - React JS
   - Baby's First Component
-    - Read data from JSON file.
+    - Read data from Props.
     - Include Image, Header and general copy.
     - Show basic styling
 
