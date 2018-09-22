@@ -1,0 +1,17 @@
+.loader {
+  @include l-flex();
+  @include l-center();
+  @include l-center-justified();
+  background-color: #fff;
+  box-sizing: border-box;
+  height: 100%;
+  position: absolute;
+  padding: 10px;
+  top: 0;
+  width: 100%;
+
+  img {
+    width: 100%;
+    max-width: 783px;
+  }
+}
