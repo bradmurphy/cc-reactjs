@@ -46,6 +46,7 @@
 
   .content {
     @include l-flex();
+    @include l-flex-auto();
     @include l-start();
     @include l-vertical();
     box-sizing: border-box;

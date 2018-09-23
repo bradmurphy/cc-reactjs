@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 const Shop = ({ items }) => (
   <div>
-    {items.map(item => {
-      return <Product key={item.key} item={item} />;
+    {items.map((item, index) => {
+      return <Product key={index} item={item} />;
     })}
   </div>
 );
