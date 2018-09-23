@@ -147,7 +147,7 @@ const INITIAL_STATE = {
 export const configuration = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_ITEM:
-      console.log(action.item);
+      console.log(state.cart);
       action.item.quantity = action.item.quantity + 1;
       const add = state.cart.filter(item => item.title !== action.item.title);
 
