@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
-import { Expo, TimelineMax } from 'gsap/TweenMax';
+import { Bounce, Expo, TimelineMax } from 'gsap/TweenMax';
 
 import image from '../assets/images/loading-duke.png';
 
 class Home extends Component {
   componentDidMount() {
-    const wait = ms => new Promise((r, j) => setTimeout(r, ms));
-    const promise = wait(3500);
+    const tl = new TimelineMax({ delay: 0.5 });
 
-    promise.then(() => {
-      const tl = new TimelineMax();
-
-      tl.to('#loader', 0.25, {
-        opacity: 0.5,
-        ease: Expo.easeOut
-      }).to('#loader', 0.15, {
-        y: '100%',
-        ease: Expo.easeIn
-      });
-
-      tl.play();
+    tl.from('#logo', 1.15, {
+      y: '-100vh',
+      ease: Bounce.easeOut
+    }).to('#loader', 0.85, {
+      delay: 1.2,
+      display: 'none',
+      opacity: 0,
+      ease: Expo.easeIn
     });
+
+    tl.play();
   }
 
   render() {
     return (
       <div id="loader" className="loader">
-        <img src={image} alt="Duke cannon" />
+        <img id="logo" src={image} alt="Duke cannon" />
       </div>
     );
   }

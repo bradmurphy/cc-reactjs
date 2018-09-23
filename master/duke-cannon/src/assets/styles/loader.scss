@@ -2,10 +2,10 @@
   @include l-flex();
   @include l-center();
   @include l-center-justified();
-  background-color: #fff;
+  background-color: $offwhite;
   box-sizing: border-box;
   height: 100%;
-  position: absolute;
+  position: fixed;
   padding: 10px;
   top: 0;
   width: 100%;
