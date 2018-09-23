@@ -28,7 +28,8 @@ Product.propTypes = {
     img: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired
+    description: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired
   }).isRequired
 };
 

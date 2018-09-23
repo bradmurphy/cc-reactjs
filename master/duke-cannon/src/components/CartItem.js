@@ -20,7 +20,6 @@ class CartItem extends Component {
           <h3>${price.toFixed(2)}</h3>
           <button
             onClick={() => {
-              item.quantity = item.quantity--;
               onClick(item);
             }}
           >
