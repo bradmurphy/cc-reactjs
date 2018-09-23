@@ -4,7 +4,7 @@ import logo from '../assets/images/logo.webp';
 
 import Home from './Home';
 import Shop from './Shop';
-import Order from './Order';
+import Cart from './Cart';
 import Account from './Account';
 import Loader from './Loader';
 
@@ -26,7 +26,7 @@ class App extends Component {
                   <Link to="/shop">Shop</Link>
                 </li>
                 <li>
-                  <Link to="/order">Order</Link>
+                  <Link to="/cart">Cart</Link>
                 </li>
                 <li>
                   <Link to="/account">Account</Link>
@@ -35,7 +35,7 @@ class App extends Component {
             </nav>
             <Route exact path="/" component={Home} />
             <Route path="/shop" component={Shop} />
-            <Route path="/order" component={Order} />
+            <Route path="/cart" component={Cart} />
             <Route path="/account" component={Account} />
           </div>
         </Router>

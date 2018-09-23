@@ -2,16 +2,16 @@ import React from 'react';
 import Product from '../components/Product';
 import { connect } from 'react-redux';
 
-const Shop = ({ items }) => (
+const Cart = ({ cart }) => (
   <div>
-    {items.map(item => {
+    {cart.map(item => {
       return <Product key={item.key} item={item} />;
     })}
   </div>
 );
 
 const mapStateToProps = state => ({
-  items: state.configuration.items
+  cart: state.configuration.cart
 });
 
-export default connect(mapStateToProps)(Shop);
+export default connect(mapStateToProps)(Cart);

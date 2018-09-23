@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { addItem } from '../actions';
 import { connect } from 'react-redux';
 
-const Product = ({ item }) => (
+const Product = ({ cart, item, onClick }) => (
   <div className="product">
     <div className="media">
       <img src={item.img} alt={item.title} />
@@ -12,7 +12,13 @@ const Product = ({ item }) => (
     <div className="content">
       <h1>{item.title}</h1>
       <p>{item.description}</p>
-      <button>Add To Cart</button>
+      <button
+        onClick={() => {
+          onClick(item);
+        }}
+      >
+        Add To Cart
+      </button>
     </div>
   </div>
 );
@@ -25,10 +31,6 @@ Product.propTypes = {
     price: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired
   }).isRequired
-};
-
-Product.propTypes = {
-  onClick: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({

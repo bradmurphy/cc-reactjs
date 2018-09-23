@@ -148,8 +148,11 @@ const INITIAL_STATE = {
 export const configuration = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_ITEM:
-      const { data } = action;
-      return Object.assign({}, state, data);
+      const newItem = action.item;
+      return {
+        ...state,
+        cart: [...state.cart, newItem]
+      };
     default:
       return state;
   }
