@@ -147,7 +147,6 @@ const INITIAL_STATE = {
 export const configuration = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_ITEM:
-      console.log(state.cart);
       action.item.quantity = action.item.quantity + 1;
       const add = state.cart.filter(item => item.title !== action.item.title);
 
@@ -156,16 +155,14 @@ export const configuration = (state = INITIAL_STATE, action) => {
         cart: [...add, action.item]
       };
     case REMOVE_ITEM:
-      console.log(state.cart);
       action.item.quantity = action.item.quantity - 1;
       const remove = state.cart.filter(
         item => item.title !== action.item.title
       );
-      const mutated = [...remove, action.item];
 
       return {
         ...state,
-        cart: [...mutated.filter(item => item.quantity > 0)]
+        cart: [...remove, action.item].filter(item => item.quantity > 0)
       };
     default:
       return state;

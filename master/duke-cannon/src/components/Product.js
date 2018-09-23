@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addItem } from '../actions';
-import { connect } from 'react-redux';
 
 const Product = ({ item, onClick }) => (
   <div className="product">
@@ -30,14 +28,8 @@ Product.propTypes = {
     price: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
     quantity: PropTypes.number.isRequired
-  }).isRequired
+  }).isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
-const mapDispatchToProps = (dispatch, props) => ({
-  onClick: () => dispatch(addItem(props.item))
-});
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Product);
+export default Product;

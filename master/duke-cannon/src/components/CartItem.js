@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { removeItem } from '../actions';
-import { connect } from 'react-redux';
 
 class CartItem extends Component {
   render() {
@@ -38,14 +36,8 @@ CartItem.propTypes = {
     price: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
     quantity: PropTypes.number.isRequired
-  }).isRequired
+  }).isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
-const mapDispatchToProps = (dispatch, props) => ({
-  onClick: () => dispatch(removeItem(props.item))
-});
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(CartItem);
+export default CartItem;
