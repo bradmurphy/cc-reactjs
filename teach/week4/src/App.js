@@ -1,20 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import logo from './logo.svg';
-import PropTypes from 'prop-types';
+import Header from './components/Header';
+import Aside from './components/Aside';
+import Page from './components/Page';
 import './App.css';
-
-const Header = ({ logo, links }) => (
-  // Hint: header > img + nav > ul > li
-  <header></header>
-);
-
-const Aside = ({ logo, links, animation }) => (
-  // Hint: aside > img + nav > li > Link
-  <aside id="menu"></aside>
-);
-
-const Page = ({ content }) => <h1>{content}</h1>;
 
 class App extends Component {
   state = {
@@ -47,37 +37,39 @@ class App extends Component {
   };
 
   animateMenu = () => {
-    // Hint: this.setState({});
+    const { menuOpened } = this.state;
+    this.setState({ menuOpened: !menuOpened });
   };
 
   render() {
     // Hint: Destructure your state and set up your menu animation statement.
-    const animation = undefined === true ? 'open' : '';
+    const { menuOpened, logo, links, content } = this.state;
+    const animation = menuOpened === true ? 'open' : '';
 
     return (
       <Router>
         <div className="wrap">
-          <button>Hamburger</button>
-          <Aside />
+          <button onClick={this.animateMenu}>Hamburger</button>
+          <Aside logo={logo} links={links} animation={animation} />
           <main>
-            <Header />
+            <Header logo={logo} links={links} />
             <section>
               <Route
                 exact
-                path={}
-                render={() => <Page />}
+                path="/"
+                render={() => <Page content={content.home} />}
               />
               <Route
-                path={}
-                render={() => <Page />}
+                path="/about"
+                render={() => <Page content={content.about} />}
               />
               <Route
-                path={}
-                render={() => <Page />}
+                path="/work"
+                render={() => <Page content={content.work} />}
               />
               <Route
-                path={}
-                render={() => <Page />}
+                path="/contact"
+                render={() => <Page content={content.contact} />}
               />
             </section>
             <footer />
