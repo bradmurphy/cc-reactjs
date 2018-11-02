@@ -2,10 +2,21 @@ import React from 'react';
 import { removeItem, addItem } from '../actions';
 import { connect } from 'react-redux';
 
-import Controller from './Controller';
+import Product from './Product';
+import Item from './Item';
 
 const App = ({ data, items, add, remove }) => (
-  <Controller data={data} items={items} add={add} remove={remove} />
+  <main>
+    <h1>Products</h1>
+    {data.map(item => (
+      <Product key={item.product} item={item} add={add} />
+    ))}
+    <hr />
+    <h1>Cart</h1>
+    {items.map(item => (
+      <Item key={item.product} item={item} remove={remove} />
+    ))}
+  </main>
 );
 
 const mapStateToProps = state => ({
