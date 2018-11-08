@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class CartItem extends Component {
   render() {
-    const { item, onClick } = this.props;
+    const { item, remove } = this.props;
     const price = item.price * item.quantity;
 
     return (
@@ -18,7 +18,7 @@ class CartItem extends Component {
           <h3>${price.toFixed(2)}</h3>
           <button
             onClick={() => {
-              onClick(item);
+              remove(item);
             }}
           >
             Remove Item
@@ -31,13 +31,13 @@ class CartItem extends Component {
 
 CartItem.propTypes = {
   item: PropTypes.shape({
-    img: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired
-  }).isRequired,
-  onClick: PropTypes.func.isRequired
+    img: PropTypes.string,
+    title: PropTypes.string,
+    price: PropTypes.number,
+    description: PropTypes.string,
+    quantity: PropTypes.number
+  }),
+  remove: PropTypes.func
 };
 
 export default CartItem;

@@ -1,25 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Product from '../components/Product';
-import { addItem } from '../actions';
-import { connect } from 'react-redux';
 
-const Shop = ({ items, onClick }) => (
+const Shop = ({ items, add }) => (
   <div>
     {items.map((item, index) => {
-      return <Product key={index} item={item} onClick={onClick} />;
+      return <Product key={index} item={item} add={add} />;
     })}
   </div>
 );
 
-const mapStateToProps = state => ({
-  items: state.configuration.items
-});
+Shop.propTypes = {
+  items: PropTypes.array,
+  add: PropTypes.func
+};
 
-const mapDispatchToProps = (dispatch, props) => ({
-  onClick: item => dispatch(addItem(item))
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Shop);
+export default Shop;

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import CartItem from '../components/CartItem';
-import { removeItem } from '../actions';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class Cart extends Component {
   render() {
-    const { cart, onClick } = this.props;
+    const { cart, remove } = this.props;
     let total = 0;
     cart.map(item => {
       const price = item.price * item.quantity;
@@ -16,7 +15,7 @@ class Cart extends Component {
     return (
       <div className="cart">
         {cart.map((item, index) => {
-          return <CartItem key={index} item={item} onClick={onClick} />;
+          return <CartItem key={index} item={item} remove={remove} />;
         })}
         <h3>Total: ${total.toFixed(2)}</h3>
       </div>
@@ -24,15 +23,9 @@ class Cart extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  cart: state.configuration.cart
-});
+Cart.propTypes = {
+  cart: PropTypes.array,
+  remove: PropTypes.func
+};
 
-const mapDispatchToProps = (dispatch, props) => ({
-  onClick: item => dispatch(removeItem(item))
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Cart);
+export default Cart;

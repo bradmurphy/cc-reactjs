@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Product = ({ item, onClick }) => (
+const Product = ({ item, add }) => (
   <div className="product">
     <div className="media">
       <img src={item.img} alt={item.title} />
@@ -12,7 +12,7 @@ const Product = ({ item, onClick }) => (
       <p>{item.description}</p>
       <button
         onClick={() => {
-          onClick(item);
+          add(item);
         }}
       >
         Add To Cart
@@ -23,13 +23,13 @@ const Product = ({ item, onClick }) => (
 
 Product.propTypes = {
   item: PropTypes.shape({
-    img: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired
-  }).isRequired,
-  onClick: PropTypes.func.isRequired
+    img: PropTypes.string,
+    title: PropTypes.string,
+    price: PropTypes.number,
+    description: PropTypes.string,
+    quantity: PropTypes.number
+  }),
+  add: PropTypes.func
 };
 
 export default Product;
