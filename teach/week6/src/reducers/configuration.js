@@ -1,4 +1,4 @@
-// Hint: Import actions.
+// Hint: Import action labels.
 
 const INITIAL_STATE = {
   data: [
