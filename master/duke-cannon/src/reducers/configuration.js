@@ -163,13 +163,11 @@ export const configuration = (state = INITIAL_STATE, action) => {
     case REMOVE_ITEM:
       action.item.quantity = action.item.quantity - 1;
 
-      const i = state.cart.indexOf(action.item);
-      const remove =
-        state.cart[i].quantity > 1
-          ? state.cart.map(item =>
-              item.title === action.item.title ? (item = action.item) : item
-            )
-          : state.cart.filter(item => item.quantity > 0);
+      const remove = state.cart
+        .map(item =>
+          item.title === action.item.title ? (item = action.item) : item
+        )
+        .filter(item => item.quantity > 0);
 
       return {
         ...state,
