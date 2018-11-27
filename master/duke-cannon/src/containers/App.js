@@ -31,10 +31,7 @@ const App = ({ data, items, cart, add, remove }) => (
         </nav>
         <Route exact path="/" render={() => <Home data={data} />} />
         <Route path="/shop" render={() => <Shop items={items} add={add} />} />
-        <Route
-          path="/cart"
-          render={() => <Cart cart={cart} remove={remove} />}
-        />
+        <Route path="/cart" render={() => <Cart cart={cart} remove={remove} />} />
       </div>
     </Router>
     <Loader />
@@ -44,15 +41,15 @@ const App = ({ data, items, cart, add, remove }) => (
 const mapStateToProps = state => ({
   data: state.configuration.data,
   cart: state.configuration.cart,
-  items: state.configuration.items
+  items: state.configuration.items,
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
   add: item => dispatch(addItem(item)),
-  remove: item => dispatch(removeItem(item))
+  remove: item => dispatch(removeItem(item)),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(App);
