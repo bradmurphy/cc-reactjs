@@ -4,13 +4,13 @@ export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const addItem = item => {
   return {
     type: ADD_ITEM,
-    item
+    item,
   };
 };
 
 export const removeItem = item => {
   return {
     type: REMOVE_ITEM,
-    item
+    item,
   };
 };
